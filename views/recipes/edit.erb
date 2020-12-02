@@ -1,0 +1,28 @@
+<h1>Bake This Way!</h1>
+<h2>Edit My Recipe</h2>
+
+<form action="/recipes/<%= recipe_item["id"] %>" method="POST">
+
+    <input type="hidden" name="_method" value="patch">
+
+    <label for="">Recipe Name: </label>
+    <input type="text" name="recipe_name" value="<%= recipe_item["recipe_name"] %>">
+
+    <label for="">Serving: </label>
+    <input type="text" name="serving" value="<%= recipe_item["serving"] %>">
+
+    <label for="">Time Completion: </label>
+    <input type="text" name="cooking_time" value="<%= recipe_item["cooking_time"] %>">
+
+    <label for="">Ingredient: </label>
+    <input type="text" name="ingredient" value="<%= recipe_item["ingredient"] %>">
+
+    <label for="">Step By Step: </label>
+    <input type="text" name="step_by_step" value="<%= recipe_item["step_by_step"] %>">
+    
+    <label for="">Recipe Image URL: </label>
+    <input type="text" name="image_url" value="<%= recipe_item["image_url"]%>">
+
+    <button>Update Food</button>
+
+</form>

@@ -4,42 +4,44 @@ require 'pry'
 require 'pg'
 require 'bcrypt'
 
+enable :sessions
+
 #Connect Database
 def run_sql(sql)
+
   db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'recipes_app'})
   results = db.exec(sql)
   db.close
   return results
-end
-
-
-get '/' do
-
-    recipes = run_sql("SELECT * FROM recipes ORDER BY id")
-    erb :'recipes/index', locals: {
-        recipes: recipes
-    }
 
 end
 
+def user_found(users)
 
-post '/recipes' do
+  if users.to_a.length > 0
+    users[0]
+  else
+    nil
+  end
+end
 
-  recipe_name = params["recipe_name"]
-  serving = params["serving"]
-  cooking_time = params["cooking_time"]
-  ingredient = params["ingredient"]
-  step_by_step = params["step_by_step"]
-  recipe_image_url = params["image_url"]
-
-  redirect '/'
+def logged_in?
   
+  !!session[:user_id]
+
 end
 
-get '/recipes/new' do
-  erb :'recipes/new'
-end
+def current_user
 
+  if logged_in?
+    user_id = session[:user_id]
+    users = run_sql("SELECT * FROM users WHERE id=#{user_id}")
+    user = user_found(users)
+  else
+    nil
+  end
+
+end
 
 
 

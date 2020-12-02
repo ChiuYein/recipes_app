@@ -1,24 +1,47 @@
 <h1>Welcome To Bake This Way!</h1>
 
+<button><a href="/signup">Sign Me Up!</a></button>
+
+<button><a href="/login">Log Me In!</a></button>
+
+<% if logged_in? %>
+
+    <h3>Welcome Back, <%= current_user()['first_name'] %>!</h3>
+
+    <form action="/sessions" method="POST">
+        <input type="hidden" name="_method" value="delete">
+
+        <button>Logout</button>
+    </form>
+
+<% end %>
+
 <h2>Have a recipe of your own to share? <a href="/recipes/new"> Submit your recipe here!</a></h2>
 
-
+<%# Loop each item in the database %>
 <% recipes.each do |recipe_item|%>
     <h2><%= recipe_item["recipe_name"] %></h2>
     <img src="<%= recipe_item["image_url"]%>">
     <p>Serving: <%= recipe_item["serving"] %></p>
-    <p>Time Completion:<%= recipe_item["cooking_time"] %></p>
+    <p>Time Completion: <%= recipe_item["cooking_time"] %></p>
     <p>Ingredient:
         <ul>
         <li><%= recipe_item["ingredient"] %></li>
         </ul>
     </p>
     <p>Step By Step: 
-        <ul>
+        <ol>
             <li><%= recipe_item["step_by_step"] %></li>
-        </ul>
+        </ol>
     </p>
     
+    <button><a href="/recipes/<%= recipe_item["id"] %>/edit">Edit</a></button>
 
+
+    <form action="recipes/<%= recipe_item["id"]%>" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <button>Remove From My List</a></button>
+    </form>
+    
 
 <% end %>
