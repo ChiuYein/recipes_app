@@ -1,0 +1,24 @@
+
+Everytime when start a new project
+
+Create repository at GitHub
+Make a staging
+1) Create git repository
+git init 
+
+2) Add all the file 
+git add -A
+
+3) Commit file
+git commit -m 'initial commmit'
+
+4) Create new repository at github and copy the github https link
+
+5) git remote add origin github-project-link
+
+6)git push origin master and type in the username and password and enter
+
+Every day remember to do git add -A, git commit -m 'new commit message', git push origin master:main
+
+
+

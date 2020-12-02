@@ -1,0 +1,24 @@
+<h1>Welcome To Bake This Way!</h1>
+
+<h2>Have a recipe of your own to share? <a href="/recipes/new"> Submit your recipe here!</a></h2>
+
+
+<% recipes.each do |recipe_item|%>
+    <h2><%= recipe_item["recipe_name"] %></h2>
+    <img src="<%= recipe_item["image_url"]%>">
+    <p>Serving: <%= recipe_item["serving"] %></p>
+    <p>Time Completion:<%= recipe_item["cooking_time"] %></p>
+    <p>Ingredient:
+        <ul>
+        <li><%= recipe_item["ingredient"] %></li>
+        </ul>
+    </p>
+    <p>Step By Step: 
+        <ul>
+            <li><%= recipe_item["step_by_step"] %></li>
+        </ul>
+    </p>
+    
+
+
+<% end %>
