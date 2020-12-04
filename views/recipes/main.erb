@@ -3,22 +3,20 @@
     <h3><a href="/"> B<span id="red">ake</span> Th<span id="red">is</span>  W<span id="red">ay</span></a></h3>
 </section>
 
-<%# <button><a href="/signup">Sign Me Up!</a></button>
 
-<button><a href="/login">Log Me In!</a></button>%>
-<h2 class="submit-recipe">Have a recipe of your own to share? <a href="/recipes/new"> Submit your recipe here!</a></h2>
 
 <% if logged_in? %>
 
-    <h3>Welcome Back, <%= current_user()['first_name'] %></h3>
+    <h3>Welcome Back, <%= current_user['first_name'] %></h3>
 
     <form action="/sessions" method="POST">
         <input type="hidden" name="_method" value="delete">
-
         <button>Logout</button>
     </form>
 
 <% end %>
+
+<h2 class="submit-recipe">Have a recipe of your own to share? <a href="/recipes/new"> Submit your recipe here!</a></h2>
 
 <section class="recipes-grid">
     <div class="recipes-gallery">
@@ -37,7 +35,7 @@
             </p>
             <p><span class="bold-title">Step By Step:</span> 
                 <ol>
-                    <li><%= recipe_item["step_by_step"]%> </li>
+                    <li><%= recipe_item["step_by_step"] %> </li>
                 </ol>
             </p>
             
