@@ -258,3 +258,18 @@ hr:after {
     padding: 0 0.25em;
     background: white;
 }
+
+/* Logout Button */
+
+#logout-btn  {
+    color: white;
+    background-color: #e25111;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size:20px;
+    border-radius: 50px;
+    cursor: pointer;
+
+}

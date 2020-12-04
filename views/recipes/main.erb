@@ -7,11 +7,11 @@
 
 <% if logged_in? %>
 
-    <h3>Welcome Back, <%= current_user['first_name'] %></h3>
+     <h3 id="welcome-msg">Welcome Back, <%= current_user['first_name'] %></h3>
 
     <form action="/sessions" method="POST">
         <input type="hidden" name="_method" value="delete">
-        <button>Logout</button>
+        <button id="logout-btn">Logout</button>
     </form>
 
 <% end %>
@@ -48,8 +48,9 @@
                 <button class="delete-btn">Remove From My List</a></button>
                 
             </form>   
-    
+        
         <% end %>
+        <hr>
     </div>
     
 </section>
