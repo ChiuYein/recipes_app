@@ -14,6 +14,6 @@ get '/signup' do
   
     run_sql("INSERT INTO users(first_name,last_name,email,password_digest) VALUES('#{users_first_name}','#{users_last_name}','#{users_email}','#{password_digest}')") 
   
-    redirect '/'
+    redirect 'recipes/main'
   
   end

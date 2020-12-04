@@ -1,14 +1,21 @@
-<h1>Bake This Way!</h1>
-
-<h2>Log In</h2>
-
-<form action="/sessions" method="POST">
-    <label for="">Email: </label>
-    <input type="text" name="email">
-
-    <label for="">Password: </label>
-    <input type="password" name="password">
+<section class="landingpage-logo">
+    <h3>B<span id="red">ake</span> Th<span id="red">is</span>  W<span id="red">ay</span></h3>
+</section>
 
 
-    <button>Log Me In!</button>
-</form>
+<h2 class="login-title">Log In</h2>
+
+ <div class="login-form">
+    <form action="/sessions" method="POST">
+        <label for="">Email: </label>
+        <input type="text" name="email" class="login-email-field" required>
+
+        <label for="">Password: </label>
+        <input type="password" name="password" class="login-password-field" required>
+
+
+        <button class="login-page-btn">Log Me In!</button>
+    </form>
+
+ </div> 
+    

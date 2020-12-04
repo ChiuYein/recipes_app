@@ -16,11 +16,13 @@ post '/sessions' do
 
         session[:user_id] = user['id']
 
-        redirect '/'
+        redirect 'recipes/main'
 
     else 
         erb :'/sessions/login'
     end    
+
+    redirect 'recipes/main'
 end
 
 

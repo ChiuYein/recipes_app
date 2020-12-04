@@ -1,0 +1,58 @@
+
+<section class="landingpage-logo">
+    <h3><a href="/"> B<span id="red">ake</span> Th<span id="red">is</span>  W<span id="red">ay</span></a></h3>
+</section>
+
+<%# <button><a href="/signup">Sign Me Up!</a></button>
+
+<button><a href="/login">Log Me In!</a></button>%>
+<h2 class="submit-recipe">Have a recipe of your own to share? <a href="/recipes/new"> Submit your recipe here!</a></h2>
+
+<% if logged_in? %>
+
+    <h3>Welcome Back, <%= current_user()['first_name'] %></h3>
+
+    <form action="/sessions" method="POST">
+        <input type="hidden" name="_method" value="delete">
+
+        <button>Logout</button>
+    </form>
+
+<% end %>
+
+<section class="recipes-grid">
+    <div class="recipes-gallery">
+    
+    <%# Loop each item in the database %>
+        <% recipes.each do |recipe_item|%>
+            <hr>
+            <h2><%= recipe_item["recipe_name"] %></h2>
+            <img class="recipe-img" src="<%= recipe_item["image_url"]%>">
+            <p><span id="serving" class="bold-title">Serving:</span> <%= recipe_item["serving"] %></p>
+            <p><span id="time-completion" class="bold-title">Time Completion:</span> <%= recipe_item["cooking_time"] %></p>
+            <p><span class="bold-title">Ingredient:</span>
+                <ul>
+                <li><%= recipe_item["ingredient"] %></li>
+                </ul>
+            </p>
+            <p><span class="bold-title">Step By Step:</span> 
+                <ol>
+                    <li><%= recipe_item["step_by_step"]%> </li>
+                </ol>
+            </p>
+            
+            <form action="/recipes/<%= recipe_item["id"] %>/edit">
+                <button class="edit-btn">Edit</button>
+            </form>
+
+            <form action="recipes/<%= recipe_item["id"]%>" method="POST">
+                <input type="hidden" name="_method" value="delete">
+                <button class="delete-btn">Remove From My List</a></button>
+                
+            </form>   
+    
+        <% end %>
+    </div>
+    
+</section>
+

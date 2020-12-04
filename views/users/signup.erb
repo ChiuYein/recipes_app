@@ -1,19 +1,34 @@
-<h1>Sign Up to Bake This Way!</h1>
 
-<form action="/users" method="POST">
+<section class="landingpage-logo">
+    <h3>B<span id="red">ake</span> Th<span id="red">is</span>  W<span id="red">ay</span></h3>
+</section>
 
-    <label for="">First Name: </label>
-    <input type="text" name="first_name">
+<h2 id="signup-title">Sign Up</h2>
 
-    <label for="">Last Name: </label>
-    <input type="text" name="last_name">
+<div class="signup-form">
+    <form action="/users" method="POST">
 
-    <label for="">Email: </label>
-    <input type="text" name="email">
+        <label for="">First Name: </label>
+        <input type="text" name="first_name" required>
 
-    <label for="">Password: </label>
-    <input type="password" name="password">
+        <label for="">Last Name: </label>
+        <input type="text" name="last_name" required>
 
-    
-    <button>Sign Me Up!</button>
-</form>
+        <label for="">Email: </label>
+        <input type="text" name="email" required>
+
+        <label for="">Password: </label>
+        <input type="password" name="password" required>
+
+        
+        <button class="signup-btn">Sign Me Up!</button>
+
+        <p class="login-link">Already Have An Account? <a href="/login">Sign In Here</a></p>
+        
+            
+    </form>
+
+</div>
+
+
+

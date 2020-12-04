@@ -35,17 +35,13 @@ def current_user
 
   if logged_in?
     user_id = session[:user_id]
-    users = run_sql("SELECT * FROM users WHERE id=#{user_id}")
+    users = run_sql("SELECT * FROM users WHERE id = #{user_id}")
     user = user_found(users)
   else
     nil
   end
 
 end
-
-
-
-
 
 
 

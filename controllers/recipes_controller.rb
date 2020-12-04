@@ -1,11 +1,17 @@
 get '/' do
 
-    recipes = run_sql("SELECT * FROM recipes ORDER BY id")
-    erb :'recipes/index', locals: {
-        recipes: recipes
-    }
+    erb :'recipes/index'
 
 end
+
+
+get '/recipes/main' do
+    
+    recipes = run_sql("SELECT * FROM recipes ORDER BY id")
+    erb :'recipes/main', locals: {
+        recipes: recipes
+    }
+  end
 
 
 get '/recipes/new' do
@@ -27,7 +33,7 @@ post '/recipes' do
     run_sql("INSERT INTO recipes(recipe_name,serving,cooking_time,ingredient,step_by_step,image_url) VALUES('#{recipe_name}','#{serving}','#{cooking_time}','#{ingredient}','#{step_by_step}','#{recipe_image_url}')")
 
 
-    redirect '/'
+    redirect 'recipes/main'
 
 end
 
@@ -56,17 +62,17 @@ patch '/recipes/:id' do
 
     run_sql("UPDATE recipes SET recipe_name='#{recipe_name}',serving='#{serving}',cooking_time='#{cooking_time}',ingredient='#{ingredient}',step_by_step='#{step_by_step}',image_url='#{recipe_image_url}' WHERE id=#{recipe_id}")
 
-    redirect '/'
+    redirect 'recipes/main'
 
 end
 
 
-delete '/recipes/:id' do
-
+delete '/recipes/recipes/:id' do
+    
     recipe_id = params["id"]
 
     run_sql("DELETE FROM recipes WHERE id=#{recipe_id}")
 
-    redirect '/'
+    redirect 'recipes/main'
 
 end

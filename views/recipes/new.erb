@@ -1,8 +1,10 @@
-<h1>Bake This Way!</h1>
+<section class="landingpage-logo">
+    <h3>B<span id="red">ake</span> Th<span id="red">is</span>  W<span id="red">ay</span></h3>
+</section>
 
-<h2>Add New Recipes!</h2>
+<h2 class="addnew-title">Add New Recipes!</h2>
 
-<form action="/recipes" method="POST">
+<form class="addnew-form" action="/recipes" method="POST">
 
     <label for="">Recipe Name:</label>
     <input type="text" name="recipe_name">
@@ -13,15 +15,17 @@
     <label for="">Cooking Time:</label>
     <input type="text" name="cooking_time">
     
-    <label for="">Ingredient</label>
+    <label for="">Ingredient:</label>
     <input type="text" name="ingredient">
     
-    <label for="">Step by Step</label>
+    <label for="">Step by Step:</label>
     <input type="text" name="step_by_step">
     
     <label for="">Recipe Image URL:</label>
     <input type="text" name="image_url">
     
-    <button>Submit</button>
+    <button class="addnew-btn">Add Recipe</button>
+    <p class="cancel"> <a href="/recipes/main">Cancel</a></p>
 
 </form>
+
