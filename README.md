@@ -17,4 +17,3 @@
   <li>Ruby</li>
 </ul>
 
-### LAYOUT
